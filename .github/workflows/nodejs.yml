@@ -1,14 +1,23 @@
-name: remote ssh command
+name: Deploy Remote website
 on: [push]
-jobs:
 
-  build:
-    name: Build
+name:  website Deploy
+
+jobs:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using password
+    # checkout the repo
+    - name: 'Checkout Github Action' 
+      uses: actions/checkout@master
+    
+   - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
       with:
+       with:
         host: 54.172.13.190
-        username: testkir
-        password: testkir
+        username:  gitaction
+        password:  INDian
+        port: 22
+         script: |
+               whoami

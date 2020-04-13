@@ -12,11 +12,11 @@ jobs:
     - uses: actions/checkout@master
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
-       with:
-        host: 54.172.13.190
-        username:  gitaction
-        password:  INDian
-        port: 22
+    with:
+      host: 54.172.13.190
+      username:  gitaction
+      password:  INDian
+      port: 22
     script: |
       whoami
       ls -al

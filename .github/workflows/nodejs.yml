@@ -11,7 +11,7 @@ jobs:
     - name: 'Checkout Github Action' 
     - uses: actions/checkout@master
     - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@master
+    - uses: appleboy/ssh-action@master
     with:
       host: 54.172.13.190
       username:  gitaction

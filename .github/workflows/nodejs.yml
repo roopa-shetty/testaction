@@ -10,8 +10,7 @@ jobs:
     # checkout the repo
     - name: 'Checkout Github Action' 
       uses: actions/checkout@master
-    
-   - name: executing remote ssh commands using ssh key
+    - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
       with:
        with:

@@ -9,14 +9,14 @@ jobs:
     steps:
     # checkout the repo
     - name: 'Checkout Github Action' 
-      uses: actions/checkout@master
+    - uses: actions/checkout@master
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
-      with:
        with:
         host: 54.172.13.190
         username:  gitaction
         password:  INDian
         port: 22
-         script:
-               whoami
+    script: |
+      whoami
+      ls -al

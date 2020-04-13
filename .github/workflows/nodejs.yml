@@ -13,4 +13,4 @@ jobs:
         username: gitaction
         password: INDian
         port: 22
-        script: whoami
+        script: /bin/bash testroopa.sh

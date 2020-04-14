@@ -1,5 +1,10 @@
 name: remote ssh command
-on: [push]
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - dev
 jobs:
 
   build:
@@ -7,10 +12,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
-      with:
-        host: 54.172.13.190
-        username: gitaction
-        password: INDian
-        port: 22
-        script: /bin/bash testroopa.sh
+#prod
+    - name: Deploy prod
+      if: github.ref == 'refs/heads/master'
+      uses: appleboy/scp-action@master
+      env:
+        HOST: 54.172.13.190
+        USERNAME: gitaction
+        PORT: 22
+        KEY: ${{ secrets.testkir }}
+        script: /bin/bash prod.sh
+#dev
+    - name: Deploy prod
+      if: github.ref == 'refs/heads/dev'
+      uses: appleboy/scp-action@master
+      env:
+        HOST: 54.172.13.190
+        USERNAME: gitaction
+        PORT: 22
+        KEY: ${{ secrets.testkir }} 
+        script: /bin/bash dev.sh

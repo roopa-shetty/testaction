@@ -21,6 +21,7 @@ jobs:
         USERNAME: gitaction
         PORT: 22
         KEY: ${{ secrets.testkir }}
+      with:  
         script: /bin/bash prod.sh
 #dev
     - name: executing remote ssh commands using password
@@ -31,5 +32,6 @@ jobs:
         HOST: 54.172.13.190
         USERNAME: gitaction
         PORT: 22
-        KEY: ${{ secrets.testkir }} 
+        KEY: ${{ secrets.testkir }}
+      with:   
         script: /bin/bash dev.sh
